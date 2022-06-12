@@ -3,6 +3,10 @@ import { Link, MemoryRouter, Route, Routes, useLocation, useParams } from 'react
 import BaseLayout from "../components/layout/base"
 import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid';
+import Trait from '../components/accordion/accordion'
+import Stack from '@mui/material/Stack';
+import { GiDeadHead } from 'react-icons/gi'
+import { GoSmiley } from 'react-icons/go'
 
 const Character = () => {
   const [currentCharacter, setCurrentCharacter] = useState([])
@@ -37,10 +41,20 @@ const Character = () => {
           </Paper>
         </Grid>
         <Grid item xs={8}>
-          <h1>{currentCharacter.name}</h1>
+          <Stack spacing={2}>
+            <h1>{currentCharacter.name}</h1>
+            <Paper elevation={2}>
+              <h2>Status: {currentCharacter.status=="Alive" ? <GoSmiley /> : <GiDeadHead /> }</h2>
+              <h2>Origin: </h2>
+            </Paper>
+            <Trait title="Species" content={currentCharacter.species} />
+            <Trait title="Gender" content={currentCharacter.gender} />
+            <Trait title="Type" content={currentCharacter.type} />
+          </Stack>
+        </Grid>
+        <Grid item xs={4}>
           <Paper elevation={4}>
-            <h6>Gender: {currentCharacter.gender}</h6>
-            {currentCharacter.type}
+            Last seen: 
           </Paper>
         </Grid>
         
