@@ -1,10 +1,19 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
+import SplashScreen from './screens/splashscreen'
+import HomeScreen from './screens/home'
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={ <SplashScreen /> } />
+      <Route path='home' element={ <HomeScreen /> } />
+    </Routes>
+  </BrowserRouter>
+)
 
 export default App;
