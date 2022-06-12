@@ -20,7 +20,6 @@ const Characters = () => {
   useEffect(() => {
     const fetchApi = async () => {
       const characters = await getAllCharacters(currentPage)
-      console.log(characters) 
       setCurrentCharacters(characters.results)
      }
      fetchApi()
