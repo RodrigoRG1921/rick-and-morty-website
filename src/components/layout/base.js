@@ -2,9 +2,17 @@ import React from 'react'
 import {
   Container
 } from '@mui/material'
+import {
+  styled
+} from '@mui/material/styles'
 import PropTypes from 'prop-types'
 
 import Header from '../header'
+
+const BaseContainer = styled(Container)`
+  padding-top: 16px;
+  padding-bottom: 16px;
+`
 
 const BaseLayout = ({
   children,
@@ -13,9 +21,9 @@ const BaseLayout = ({
 }) => (
   <>
     <Header title={ title }/>
-    <Container maxWidth={ maxWidth }>
+    <BaseContainer maxWidth={ maxWidth }>
       { children }
-    </Container>
+    </BaseContainer>
   </>
 )
 

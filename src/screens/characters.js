@@ -1,8 +1,9 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Paginations from '../components/Pagination'
-import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import BaseLayout from "../components/layout/base"
 import { GiDeadHead } from 'react-icons/gi'
 import { GoSmiley } from 'react-icons/go'
+
 const Characters = () => {
   const apiBaseUrl = 'https://rickandmortyapi.com/api/character'
   const [currentCharacters, setCurrentCharacters] = useState([])
@@ -32,7 +33,8 @@ const Characters = () => {
   }
 
   return (
-    <div>
+    <BaseLayout>
+      <div>
       <div>
         {currentCharacters.map((character) => {
           return(
@@ -46,7 +48,9 @@ const Characters = () => {
         })}
       </div>
       <Paginations handlePageClick={handlePageClick} count={42} />
-    </div>
+     </div>
+    </BaseLayout>
+    
   )
 }
 
