@@ -12,6 +12,7 @@ import Characters from './screens/characters'
 import Character from './screens/character'
 import Locations from './screens/locations'
 import Location from './screens/location'
+import Episodes from "./screens/episodes";
 
 const App = () => (
   <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => (
       <Route path='characters/:id' element={ <Character /> } />
       <Route path='locations' element={ <Locations /> } />
       <Route path='locations/:id' element={ <Location /> } />
+      <Route path='episodes/' element={ <Episodes /> } />
     </Routes>
   </BrowserRouter>
 )
