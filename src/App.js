@@ -12,7 +12,8 @@ import Characters from './screens/characters'
 import Character from './screens/character'
 import Locations from './screens/locations'
 import Location from './screens/location'
-import Episodes from "./screens/episodes";
+import Episodes from './screens/episodes';
+import Episode from './screens/episode'
 
 const App = () => (
   <BrowserRouter>
@@ -24,6 +25,7 @@ const App = () => (
       <Route path='locations' element={ <Locations /> } />
       <Route path='locations/:id' element={ <Location /> } />
       <Route path='episodes/' element={ <Episodes /> } />
+      <Route path='episodes/:id' element={ <Episode /> } />
     </Routes>
   </BrowserRouter>
 )
