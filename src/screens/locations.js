@@ -6,6 +6,7 @@ import {
   Grid,
   Pagination
 } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 import Api from '../lib/api'
 
@@ -39,7 +40,9 @@ const LocationsScreen = () => {
           spacing={ 2 }>
           { locations.map(location => (
             <Grid item key={ location.id } xs={ 6 }>
-              <LocationCard { ...location } />
+              <Link className='link' to={ `${location.id}` }>
+                <LocationCard { ...location } />
+              </Link>
             </Grid>
           )) }
         </Grid>

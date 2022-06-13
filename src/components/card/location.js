@@ -2,17 +2,18 @@ import React from 'react'
 import {
   Card,
   CardHeader,
-  Avatar
+  Avatar,
+  CardActions,
+  Typography
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const LocationCard = ({
-  id,
   name,
   type,
-  dimension,
-  handleClick
+  dimension
 }) => (
-  <Card onClick={ () => handleClick({ id }) }>
+  <Card>
     <CardHeader
       avatar={
         <Avatar>
@@ -21,7 +22,18 @@ const LocationCard = ({
       }
       title={ type }
       subheader={ dimension }/>
+    <CardActions>
+      <Typography>
+        { name }
+      </Typography>
+    </CardActions>
   </Card>
 )
+
+LocationCard.propTypes = {
+  name: PropTypes.string,
+  type: PropTypes.string,
+  dimension: PropTypes.string
+}
 
 export default LocationCard
