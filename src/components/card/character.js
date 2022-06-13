@@ -1,4 +1,6 @@
 import React from 'react'
+import { GiDeadHead } from 'react-icons/gi'
+import { GoSmiley } from 'react-icons/go'
 import {
   Card,
   Chip,
@@ -18,7 +20,7 @@ const CharacterCard = ({
   <Card>
     <CardMedia
       component='img'
-      image={ image }
+      image={ image } 
       alt={ name }/>
     <CardContent>
       <Typography gutterBottom variant='h5' component='div'>
@@ -26,7 +28,7 @@ const CharacterCard = ({
       </Typography>
     </CardContent>
     <CardActions>
-      <Chip label={ status }/>
+      <Chip label={ status == "Alive" ? "Alive" : <div> Dead <GiDeadHead/> </div> }/>
       <Chip label={ species }/>
     </CardActions>
   </Card>
