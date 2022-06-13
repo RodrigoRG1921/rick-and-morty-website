@@ -3,6 +3,7 @@ import Paginations from '../components/Pagination'
 import BaseLayout from "../components/layout/base"
 import { GiDeadHead } from 'react-icons/gi'
 import { GoSmiley } from 'react-icons/go'
+import CharacterCard from '../components/card/character'
 
 const Characters = () => {
   const apiBaseUrl = 'https://rickandmortyapi.com/api/character'
@@ -40,9 +41,7 @@ const Characters = () => {
           return(
             <div style={{display:"flex", justifyContent:"space-between"}} key={character.id}>
               <a href={`characters/${character.id}`} >{character.name}</a>
-              <span>{character.species}</span>
-              <span>{character.status=="Alive" ? <GoSmiley /> : <GiDeadHead /> }</span>
-              <img src={character.image} style={{width:"50px", height:"50px"}} />
+              <CharacterCard {...character} />
             </div> 
           )
         })}
