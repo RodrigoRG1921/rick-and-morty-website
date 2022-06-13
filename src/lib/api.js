@@ -36,12 +36,25 @@ const Api = (() => {
     }
   }
 
-  const getAllCharacters = async (page) => {
+  const getAllCharacters = async ({
+    page
+  }) => {
     try{
       const response = await fetch(`${apiBaseUrl}/character?page=${page}`)
       return await response.json()
     } catch(error){
       console.error(error)
+      return false
+    }
+  }
+
+  const getAllEpisodesById = async (page) => {
+    try{
+      const response = await fetch(`${apiBaseUrl}/episode?page=${page}`)
+      return await response.json()
+    } catch(error){
+      console.error(error)
+      return false
     }
   }
 
@@ -49,7 +62,8 @@ const Api = (() => {
     getLocationsByPagination,
     getLocationById,
     getMultipleCharacters,
-    getAllCharacters
+    getAllCharacters,
+    getAllEpisodesById
   }
 })()
 
