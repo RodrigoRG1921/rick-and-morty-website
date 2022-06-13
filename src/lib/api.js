@@ -13,8 +13,34 @@ const Api = (() => {
     }
   }
 
+  const getLocationById = async ({
+    id
+  }) => {
+    try {
+      const response = await fetch(`${apiBaseUrl}/location/${id}`)
+      return await response.json()
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
+  const getMultipleCharacters = async ({
+    ids
+  }) => {
+    try {
+      const response = await fetch(`${apiBaseUrl}/character/${ids}`)
+      return await response.json()
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
   return {
-    getLocationsByPagination
+    getLocationsByPagination,
+    getLocationById,
+    getMultipleCharacters
   }
 })()
 

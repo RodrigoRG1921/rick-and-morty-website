@@ -1,28 +1,42 @@
 import React from 'react'
 import {
   Card,
-  CardHeader,
-  Avatar
+  Chip,
+  CardActions,
+  Typography,
+  CardMedia,
+  CardContent
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const CharacterCard = ({
-  id,
   name,
-  species,
+  image,
   status,
-  handleClick,
-  image
+  species
 }) => (
-  <Card onClick={ () => handleClick({ id }) }>
-    <CardHeader
-      avatar={
-        <Avatar>
-          { name }
-        </Avatar>
-      }
-      title={ name }
-      subheader={ species }/>
+  <Card>
+    <CardMedia
+      component='img'
+      image={ image }
+      alt={ name }/>
+    <CardContent>
+      <Typography gutterBottom variant='h5' component='div'>
+        { name }
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Chip label={ status }/>
+      <Chip label={ species }/>
+    </CardActions>
   </Card>
 )
+
+CharacterCard.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  status: PropTypes.string,
+  species: PropTypes.string
+}
 
 export default CharacterCard
