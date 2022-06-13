@@ -30,6 +30,7 @@ const LocationScreen = () => {
 
       const ids = response.residents.reduce((accumulator, residentUrl) =>
         `${accumulator}${subtractIdFromUrl(residentUrl)},`, '')
+        console.log(ids)
       const charactersResponse = await Api.getMultipleCharacters({ ids: ids.slice(0, -1) })
       setResidents(charactersResponse)
 
@@ -49,7 +50,7 @@ const LocationScreen = () => {
         </Grid>
         <Grid item container spacing={ 2 }>
           { residents.map((resident, index) => (
-            <Grid item key={ `${resident.name}-${index}` } xs={ 4 }>
+            <Grid item key={ `${resident.name}-${index}` } xs={ 6 } sm={ 4 }>
               <Link to={{ pathname: `/characters/${resident.id}` }} className='link'>
                 <CharacterCard { ...resident }/>
               </Link>
