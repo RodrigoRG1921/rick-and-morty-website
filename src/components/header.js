@@ -11,6 +11,7 @@ import {
 import {
   Menu as MenuIcon
 } from '@mui/icons-material'
+import { Link } from 'react-router-dom';
 
 import Drawer from './drawer'
 
@@ -34,9 +35,12 @@ const Header = ({
             isOpen={ isDrawerOpen }
             handleClose={ () => setIsDrawerOpen(false) }/>
         </IconButton>
-        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-          { title }
-        </Typography>
+        <Link to={{pathname:"/home"}} style={{color:"white"}}>
+          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+            { title }
+          </Typography>
+        </Link>
+        
       </Toolbar>
     </AppBar>
   )
