@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import ApiService from '../lib/api'
 
 const Characters = () => {
-  const apiBaseUrl = 'https://rickandmortyapi.com/api/character'
+  
   const [currentCharacters, setCurrentCharacters] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   
@@ -33,7 +33,7 @@ const Characters = () => {
         <Grid item container spacing={ 2 }>
           {currentCharacters.map((character) => {
               return(
-                <Grid item key={ character.id } xs={ 4 }>
+                <Grid item key={ character.id } xs={ 12 } sm={6} md={4} >
                   <Link to={`${character.id}`}>
                     <CharacterCard {...character} />
                   </Link>

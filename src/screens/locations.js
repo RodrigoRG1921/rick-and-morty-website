@@ -39,7 +39,7 @@ const LocationsScreen = () => {
           container
           spacing={ 2 }>
           { locations.map(location => (
-            <Grid item key={ location.id } xs={ 6 }>
+            <Grid item key={ location.id } xs={ 12 } sm={ 6 }>
               <Link className='link' to={ `${location.id}` }>
                 <LocationCard { ...location } />
               </Link>

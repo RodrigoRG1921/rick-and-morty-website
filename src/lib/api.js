@@ -58,12 +58,23 @@ const Api = (() => {
     }
   }
 
+  const getEpisodeById = async (id) => {
+    try {
+      const response = await fetch(`${apiBaseUrl}/episode/${id}`)
+      return await response.json()
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
   return {
     getLocationsByPagination,
     getLocationById,
     getMultipleCharacters,
     getAllCharacters,
-    getAllEpisodesById
+    getAllEpisodesById,
+    getEpisodeById
   }
 })()
 
