@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 const EpisodeCard = ({
   name,
   episode,
-  airDate
+  air_date
 }) => (
   <Card>
     <CardHeader
@@ -24,7 +24,7 @@ const EpisodeCard = ({
       subheader={ episode }/>
     <CardActions>
       <Typography>
-        Air Date: { airDate }
+        Air Date: { air_date }
       </Typography>
     </CardActions>
   </Card>

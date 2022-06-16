@@ -10,12 +10,10 @@ const [pagination, setPagination] = useState({page: 3, pages: ""})
 const [currentEpisodes, setCurrentEpisodes] = useState([])
   useEffect(() => {
     const fetchApi = async() => {
-      console.log(parseInt(pagination.page))
       const {info, results} = await ApiService.getAllEpisodesById(pagination.page)
       setPagination(prevPagination => ({ ...prevPagination, pages: info.pages }))
       setCurrentEpisodes(results)
-      console.log(results)
-      console.log(info)
+
     }
     fetchApi()
 
@@ -31,12 +29,12 @@ const [currentEpisodes, setCurrentEpisodes] = useState([])
           container
           spacing={ 2 }>
           { currentEpisodes.map(episode => (
-            <Grid item xs={ 6 }>
+            <Grid item xs={ 12 } sm={ 6 }>
               <Link className='link' to={ `${episode.id}` }>
                 <EpisodeCard
                   name={episode.name}
                   episode={episode.episode}
-                  airDate={episode.air_date}
+                  air_date={episode.air_date}
                 />
               </Link>
             </Grid>

@@ -8,48 +8,46 @@ import {
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-import Api from '../lib/api'
+import ApiService from '../lib/api'
 
 import BaseLayout from '../components/layout/base'
-import LocationCard from '../components/card/location'
+import EpisodeCard from '../components/card/episode'
 import CharacterCard from '../components/card/character'
 
-const subtractIdFromUrl = url => url.split('/').pop()
-
-const LocationScreen = () => {
+const Episode = () => {
+  const [currentEpisode, setCurrentEpisode] = useState({})
+  const [currentCharacters, setCurrentCharacters] = useState([])
   const { id } = useParams()
-
-  const [location, setLocation] = useState({})
-  const [residents, setResidents] = useState([])
   const [isFetching, setIsFetching] = useState(true)
+ 
 
   useEffect(() => {
-    const fetchApi = async () => {
-      const response = await Api.getLocationById({ id })
-      setLocation(response)
-
-      const ids = response.residents.reduce((accumulator, residentUrl) =>
-        `${accumulator}${subtractIdFromUrl(residentUrl)},`, '')
-        console.log(ids)
-      const charactersResponse = await Api.getMultipleCharacters({ ids: ids.slice(0, -1) })
-      setResidents(charactersResponse)
-
+    const fetchApi = async() => {
+      const episode = await ApiService.getEpisodeById(id)
+      setCurrentEpisode(episode)
+      
+      const idsArray = episode.characters.map((character) => {
+        return character.split("/").pop()
+      })
+      const ids = idsArray.join(",") 
+      const characters = await ApiService.getMultipleCharacters({ ids })
+      setCurrentCharacters(characters)
       setIsFetching(false)
     }
-
     fetchApi()
   }, [])
+
 
   return (
     <BaseLayout>
       <Grid container spacing={ 2 }>
         <Grid item container spacing={ 2 }>
           <Grid item xs={ 12 }>
-            { !isFetching && <LocationCard { ...location }/> }
+            { !isFetching && <EpisodeCard { ...currentEpisode }/> }
           </Grid>
         </Grid>
         <Grid item container spacing={ 2 }>
-          { residents.map((resident, index) => (
+          { currentCharacters.map((resident, index) => (
             <Grid item key={ `${resident.name}-${index}` } xs={ 6 } sm={ 4 }>
               <Link to={{ pathname: `/characters/${resident.id}` }} className='link'>
                 <CharacterCard { ...resident }/>
@@ -62,4 +60,4 @@ const LocationScreen = () => {
   )
 }
 
-export default LocationScreen
+export default Episode
