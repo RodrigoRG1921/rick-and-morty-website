@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types'
 
 import Header from '../header'
+import Footer from '../footer'
 
 const BaseContainer = styled(Container)`
   padding-top: 16px;
@@ -24,6 +25,7 @@ const BaseLayout = ({
     <BaseContainer maxWidth={ maxWidth }>
       { children }
     </BaseContainer>
+    <Footer />
   </>
 )
 
