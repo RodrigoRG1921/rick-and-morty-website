@@ -48,7 +48,9 @@ const Api = (() => {
     }
   }
 
-  const getAllEpisodesById = async (page) => {
+  const getAllEpisodesById = async ({
+    page
+  }) => {
     try{
       const response = await fetch(`${apiBaseUrl}/episode?page=${page}`)
       return await response.json()
@@ -58,7 +60,9 @@ const Api = (() => {
     }
   }
 
-  const getEpisodeById = async (id) => {
+  const getEpisodeById = async ({
+    id
+  }) => {
     try {
       const response = await fetch(`${apiBaseUrl}/episode/${id}`)
       return await response.json()

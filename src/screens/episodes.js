@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 import EpisodeCard from '../components/card/episode'
 
 const Episodes = () => {
-const [pagination, setPagination] = useState({page: 3, pages: ""})
+const [pagination, setPagination] = useState({page: 1, pages: ""})
 const [currentEpisodes, setCurrentEpisodes] = useState([])
   useEffect(() => {
     const fetchApi = async() => {
-      const {info, results} = await ApiService.getAllEpisodesById(pagination.page)
+      const {info, results} = await ApiService.getAllEpisodesById({page: pagination.page})
       setPagination(prevPagination => ({ ...prevPagination, pages: info.pages }))
       setCurrentEpisodes(results)
 

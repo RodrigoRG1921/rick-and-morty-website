@@ -15,7 +15,7 @@ const Characters = () => {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const characters = await ApiService.getAllCharacters(currentPage)
+      const characters = await ApiService.getAllCharacters({page: currentPage})
       setCurrentCharacters(characters.results)
      }
      fetchApi()

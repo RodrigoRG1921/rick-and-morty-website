@@ -23,7 +23,7 @@ const Episode = () => {
 
   useEffect(() => {
     const fetchApi = async() => {
-      const episode = await ApiService.getEpisodeById(id)
+      const episode = await ApiService.getEpisodeById({id: id})
       setCurrentEpisode(episode)
       
       const idsArray = episode.characters.map((character) => {
