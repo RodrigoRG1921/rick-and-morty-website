@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import PropTypes from 'prop-types'
-import Home from '../screens/home'
+
 
 const Paginations = ({ count, handlePageClick}) => {
   
@@ -30,15 +30,6 @@ const Paginations = ({ count, handlePageClick}) => {
   )
 }
 
-function PaginationLink() {
-  return (
-    <MemoryRouter initialEntries={['/inbox']} initialIndex={0}>
-      <Routes>
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </MemoryRouter>
-  );
-}
 
 Paginations.propTypes = {
   count: PropTypes.number,

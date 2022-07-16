@@ -30,15 +30,14 @@ const LocationScreen = () => {
 
       const ids = response.residents.reduce((accumulator, residentUrl) =>
         `${accumulator}${subtractIdFromUrl(residentUrl)},`, '')
-        console.log(ids)
-      const charactersResponse = await Api.getMultipleCharacters({ ids: ids.slice(0, -1) })
-      setResidents(charactersResponse)
+        const charactersResponse = await Api.getMultipleCharacters({ ids: ids.slice(0, -1) })
+        setResidents(charactersResponse)
 
-      setIsFetching(false)
+        setIsFetching(false)
     }
 
     fetchApi()
-  }, [])
+  }, [id])
 
   return (
     <BaseLayout>

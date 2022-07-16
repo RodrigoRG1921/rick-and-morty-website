@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import BaseLayout from '../components/layout/base'
 import ApiService from '../lib/api'
-import { getPaginationUtilityClass, Grid, Pagination } from '@mui/material'
+import { Grid, Pagination } from '@mui/material'
 import { Link } from 'react-router-dom'
 import EpisodeCard from '../components/card/episode'
 

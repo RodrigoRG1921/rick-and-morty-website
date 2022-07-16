@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState} from 'react'
 import Paginations from '../components/Pagination'
 import BaseLayout from "../components/layout/base"
 import CharacterCard from '../components/card/character'

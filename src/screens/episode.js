@@ -35,7 +35,7 @@ const Episode = () => {
       setIsFetching(false)
     }
     fetchApi()
-  }, [])
+  }, [id])
 
 
   return (
