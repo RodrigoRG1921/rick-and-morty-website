@@ -1,3 +1,6 @@
 .MuiAccordion-region{
   background-color: lightgray;
 }
+body{
+  margin:0;
+}
